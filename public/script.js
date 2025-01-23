@@ -6,6 +6,9 @@ document.getElementById('spotifyLoginButton').addEventListener('click', function
     window.location.href = '/login';
 });
 
+document.getElementById('play').addEventListener('click', function () {
+    playRandomSong();
+});
 // Check if the URL has the access token parameter (which comes from the /callback route)
 window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
@@ -28,3 +31,11 @@ async function fetchProfile(accessToken) {
         document.getElementById('profile').innerHTML = 'Error fetching profile data';
     }
 }
+
+
+
+
+
+
+
+

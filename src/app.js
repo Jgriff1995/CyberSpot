@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import express from 'express'; // Use import for ES modules
-import { fetchProfile, getAccessToken } from './spotifyAuth.js'; // Correct path for the import
+import { fetchPlayListInfo, fetchProfile, getAccessToken } from './spotifyAuth.js'; // Correct path for the import
 dotenv.config();
 
 const clientId = process.env.CLIENT_KEY;
@@ -57,6 +57,7 @@ app.get('/profile', async (req, res) => {
     if (accessToken) {
         try {
             const profile = await fetchProfile(accessToken);
+            const playlist = await fetchPlayListInfo(accessToken);
 
             // Send back a simple HTML with profile data
             res.send(`
@@ -66,6 +67,11 @@ app.get('/profile', async (req, res) => {
         <p>ID: ${profile.id}</p>
         <img src="${profile.images[0]?.url}" alt="Profile Image" width="200" />
         <a href="${profile.external_urls.spotify}" target="_blank">Open in Spotify</a>
+        <div class = "playlists">
+        <h1>PlayList Name: ${playlist.name}</h1>
+        <h2>PlaysList Owner: Moonclan! <h2>
+        <button id= "play">Click here to play a song from the list</button>
+        </div>
       `);
         } catch (error) {
             res.send('Error fetching profile data');
@@ -74,6 +80,11 @@ app.get('/profile', async (req, res) => {
         res.send('Access token is missing');
     }
 });
+
+app.get('/player', async (req, res) => {
+
+})
+
 
 // Start the server
 app.listen(port, () => {
