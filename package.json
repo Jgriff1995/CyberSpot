@@ -1,0 +1,27 @@
+{
+    "name": "nodedemo",
+    "version": "1.0.0",
+    "description": "node app ",
+    "main": "app.js",
+    "scripts": {
+        "watch": "nodemon src/app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "node-fetch": "^3.3.2",
+        "nodedemo": "file:",
+        "openai": "^4.33.0"
+    },
+    "type": "module"
+}
