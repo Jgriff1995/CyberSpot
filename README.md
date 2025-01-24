@@ -1,3 +1,6 @@
+Old unoptimized version(please see: https://github.com/Jgriff1995/SpotiPunk )
+
+
 Simple: I wanted to listen to spotify while i drove around CyberPunk2077.
 
 Node.js
